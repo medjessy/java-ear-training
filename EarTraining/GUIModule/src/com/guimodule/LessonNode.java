@@ -6,6 +6,9 @@
 
 package com.guimodule;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Action;
 import org.openide.nodes.AbstractNode;
 import org.openide.nodes.Children;
 import org.openide.util.lookup.Lookups;
@@ -15,7 +18,7 @@ import org.openide.util.lookup.Lookups;
  *
  * @author dmenard
  */
-public class LessonNode extends AbstractNode {
+public class LessonNode extends AbstractNode  {
     private Lesson lesson;
     
     public LessonNode(Lesson lesson){
@@ -24,4 +27,10 @@ public class LessonNode extends AbstractNode {
         setDisplayName(lesson.getName());
         setIconBaseWithExtension("com/guimodule/node.png");
     }
+
+    @Override
+    public Action getPreferredAction(){
+        return new LessonNodeAction();
+    }
+    
 }
